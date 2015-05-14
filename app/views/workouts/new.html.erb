@@ -1,0 +1,8 @@
+<h1>Log A Workout</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <h3><%= Time.now %></h3>
+    <%= render partial: 'form', locals: { workout: @workout } %>
+  </div>
+</div>

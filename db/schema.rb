@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507020004) do
+ActiveRecord::Schema.define(version: 20150509163345) do
+
+  create_table "exercises", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "target"
+    t.integer  "workout_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exercises", ["workout_id"], name: "index_exercises_on_workout_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -35,5 +46,15 @@ ActiveRecord::Schema.define(version: 20150507020004) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "workouts", force: true do |t|
+    t.string   "location"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description", default: ""
+  end
+
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
 
 end

@@ -1,0 +1,7 @@
+<h1>Edit Workout</h1>
+<div class="row">
+  <div class="col-md-8">
+    <h3><%= @workout.date %></h3>
+    <%= render partial: 'form', locals: { workout: @workout } %>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<h1>Workouts</h1>
+<% @workouts.each do |workout| %>
+  <h4><%= link_to workout.date, workout %></h4>
+  <% unless workout.location == nil %>
+    <p>You workout out at <%= workout.location %><p>
+  <% end %>
+<% end %>

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :users
-  
-  get 'welcome/index'
+
+  resources :workouts do
+    resources :exercises
+  end
 
   get 'welcome/about', :as => 'about'
 
