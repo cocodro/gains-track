@@ -1,6 +1,6 @@
-class CreateSets < ActiveRecord::Migration
+class CreateExSets < ActiveRecord::Migration
   def change
-    create_table :sets do |t|
+    create_table :ex_sets do |t|
       t.integer :order
       t.integer :reps
       t.integer :weight

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514013822) do
+ActiveRecord::Schema.define(version: 20150515150247) do
+
+  create_table "ex_sets", force: true do |t|
+    t.integer  "order"
+    t.integer  "reps"
+    t.integer  "weight"
+    t.integer  "exercise_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ex_sets", ["exercise_id"], name: "index_ex_sets_on_exercise_id"
 
   create_table "exercises", force: true do |t|
     t.string   "name"
@@ -53,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150514013822) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SetsTest < ActiveSupport::TestCase
+class ExSetTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

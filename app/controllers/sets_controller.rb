@@ -2,16 +2,16 @@ class SetsController < ApplicationController
 
   def new
     @exercise = Exercise.find(params[:exercise_id])
-    @set = Set.new
+    @set = ExSet.new
   end
 
   def create
     @exercise = Exercise.find(params[:exercise_id])
-    @set = Set.new(set_params)
+    @set = ExSet.new(set_params)
     @set.exercise = @exercise
 
     if @set.save
-      redirect_to :exercise
+      redirect_to [@exercise.workout, @exercise]
     else
       flash[:error] = "Uh oh! We couldn't add your set!"
       redirect_to :new
@@ -20,7 +20,7 @@ class SetsController < ApplicationController
 
   def update
     @exercise = Exercise.find(params[:exercise_id])
-    @set = Set.find(params[:id])
+    @set = ExSet.find(params[:id])
     @set.exercise = @exercise
 
     if @set.update_attributes(set_params)
@@ -33,7 +33,7 @@ class SetsController < ApplicationController
 
   def destroy
     @exercise = Exercise.find(params[:exercise_id])
-    @set = Set.find(params[:id])
+    @set = ExSet.find(params[:id])
     @set.exercise = @exercise
 
     if @set.destroy
@@ -48,4 +48,5 @@ class SetsController < ApplicationController
 
   def set_params
     params.require(:set).permit(:order, :reps, :weight)
+  end
 end

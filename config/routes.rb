@@ -2,10 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :users, only: [:update]
+
   resources :workouts do
-    resources :exercises do
-      resource :sets
-    end
+    resources :exercises
+  end
+
+  resources :exercises, only: [] do
+    resources :sets, :as => 'ex_sets'
   end
 
   get 'welcome/about', :as => 'about'

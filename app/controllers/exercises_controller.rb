@@ -11,11 +11,18 @@ class ExercisesController < ApplicationController
     @exercise.workout = @workout
 
     if @exercise.save
-      redirect_to workout_exercise_path
+      redirect_to [@workout, @exercise]
     else
       flash[:error] = "Uh oh, something went wrong!  Try again!"
       redirect_to :back
     end
+  end
+
+  def show
+    @workout = Workout.find(params[:workout_id])
+    @exercise = Exercise.find(params[:id])
+    @set = ExSet.new
+    @sets = @exercise.sets
   end
 
   def edit
