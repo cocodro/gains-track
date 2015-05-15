@@ -11,7 +11,7 @@ class ExercisesController < ApplicationController
     @exercise.workout = @workout
 
     if @exercise.save
-      redirect_to @workout
+      redirect_to workout_exercise_path
     else
       flash[:error] = "Uh oh, something went wrong!  Try again!"
       redirect_to :back

@@ -3,10 +3,10 @@ class CreateSets < ActiveRecord::Migration
     create_table :sets do |t|
       t.integer :order
       t.integer :reps
-      t.exercise :references
+      t.integer :weight
+      t.references :exercise, index: true
 
       t.timestamps
     end
-    add_index :sets, :references
   end
 end

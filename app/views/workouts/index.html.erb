@@ -1,7 +1,14 @@
 <h1>Workouts</h1>
-<% @workouts.each do |workout| %>
-  <h4><%= link_to workout.date, workout %></h4>
-  <% unless workout.location == nil %>
-    <p>You workout out at <%= workout.location %><p>
+<div>
+  <% if @workouts.nil? %>
+    <%= link_to "Start Workout", new_workout_path, class: "btn btn-md btn-success" %>
+  <% else %>
+    <% @workouts.each do |workout| %>
+      <h4><%= link_to workout.date, workout %></h4>
+      <% unless workout.location == nil %>
+        <p>You workout out at <%= workout.location %><p>
+      <% end %>
+    <% end %>
+    <%= link_to "Start Workout", new_workout_path, class: "btn btn-md btn-success" %>
   <% end %>
-<% end %>
+</div>

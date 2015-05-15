@@ -1,6 +1,6 @@
 class Workout < ActiveRecord::Base
   belongs_to :user
-  has_many :exercises
+  has_many :exercises, dependent: :destroy
 
   def date
     @date = self.created_at

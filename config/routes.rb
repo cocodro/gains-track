@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :workouts do
-    resources :exercises
+    resources :exercises do
+      resource :sets
+    end
   end
 
   get 'welcome/about', :as => 'about'
