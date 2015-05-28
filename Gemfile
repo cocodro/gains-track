@@ -47,6 +47,10 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+
+##Charts
+gem 'chartkick', '~> 1.3.2'
+gem 'groupdate'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

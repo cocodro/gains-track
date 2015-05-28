@@ -1,18 +1,23 @@
-<h1><%= @workout.date%></h1>
-<div class="data-btns">
-  <%= link_to "", method: :delete, class: "btn btn-md btn-danger", data:{confirm: "Are you sure? Fat is temporary, but deleting is forever!"} do %>
-    Delete Workout &nbsp; <%= fa_icon "trash-o" %>
-  <% end %>
-  <%= link_to "Add Exercise", new_workout_exercise_path(@workout, @exercise), class:"btn btn-md btn-primary" %>
-</div>
-<div class="row-fluid">
-  <div class="span8">
-    <h4>You worked out at <%= @workout.location %></h4>
-    <% if @workout.description %>
-      <p><%= @workout.description %></p>
+<div>
+  <h1><%= @workout.date%></h1>
+  <div class="edit-btns">
+    <%= link_to "Add Exercise", new_workout_exercise_path(@workout, @exercise), class:"btn btn-md btn-primary" %>
+    <%= link_to "Finish Workout", user_workouts_path, class: 'btn btn-md btn-success' %>
+    <%= link_to "", method: :delete, class: "btn btn-md btn-danger", data:{confirm: "Are you sure? Fat is temporary, but deleting is forever!"} do %>
+      Delete Workout &nbsp; <%= fa_icon "trash-o" %>
     <% end %>
-  </div>
-  <div>
-    <%= render partial: "exercises/exercise", collection: @exercises %>
+</div>
+  <div class="row-fluid">
+    <div class="span8">
+      You worked out at <%= @workout.location %>
+      <% if @workout.description %>
+        <h3 class="workout-name"><u><%= @workout.description %></u></h3>
+      <% end %>
+    </div>
+  </br>
+</br>
+    <div>
+      <%= render partial: "exercises/exercise", collection: @exercises %>
+    </div>
   </div>
 </div>

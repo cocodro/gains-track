@@ -1,2 +1,43 @@
-<h1>Welcome to Gains Tracker</h1>
-<p>This site is in development.  Check back soon.</p>
+<h1>Welcome to Gains Track</h1>
+<div class="container">
+  <div class="col-md-6 main-list">
+    <h2>Gains Track is here to help you achieve your fitness goals!</h2>
+    <ul class="fa-ul ul-welcome">
+      <li><h3><i class="fa-li fa fa-pencil"></i>&nbsp;Track Workouts</h3></li>
+      <li><h3><i class="fa-li fa fa-bar-chart"></i>&nbsp;Monitor Improvments</h3></li>
+      <li><h3><i class="fa-li fa fa-bullhorn"></i>&nbsp;Share your Progress</h3></li>
+      <li><h3><i class="fa-li fa fa-users"></i>&nbsp;Make Friends</h3></li>
+    </ul>
+  </br>
+    <h2>If you can dream it, Gains Track will help you get there!</h2>
+  </div>
+  <div id="myCarousel" class="col-md-6 carousel slide" data-ride="carousel">
+    <h2>Our Users</h2>
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active user-scroll">
+        <%= image_tag("arnold.jpeg", alt: "Arnold Schwarzeneggar") %>
+      </div>
+      <div class="item user-scroll">
+        <%= image_tag("crossfit.jpg", alt: "Lady Crossfit") %>
+      </div>
+      <div class="item user-scroll">
+        <%= image_tag("rambo.jpg", alt: "Rambo") %>
+      </div>
+      <div class="item user-scroll">
+        <%= image_tag("User1.jpg", alt: "Female Bodybuilder") %>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+<h1> Ready to Get Started? </h1>
+<div class="container">
+  <h3>It's easy to get started!  If you're new to Gains Track, head over to the <%= link_to "Sign up", new_user_registration_path %> page and
+    set up your account.  If you've been here before and this is the 100<superscript>th</superscript> time you've seen this, just <%= link_to "Sign in", new_user_session_path %> already!</h3>
+</div>

@@ -1,8 +1,9 @@
-<h4><%= @exercise.name %></h4>
-<div>
-  <%= render partial: "sets/set", collection: @sets %>
-  <%= render partial: "sets/form" %>
-</div>
-<div>
-  <%= link_to "Finish Exercise", @exercise.workout, class: "btn btn-md btn-success" %>
-</div>
+<h1><%= @exercise.name %></h1>
+  <div>
+    <%= render partial: "sets/set", collection: @sets %>
+    <%= render partial: "sets/form" %>
+  </div>
+
+  <div>
+    <%= link_to "Finish Exercise", @exercise.workout, class: "btn btn-md btn-success" %>
+  </div>

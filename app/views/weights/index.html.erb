@@ -1,0 +1,3 @@
+<h1>My Weight History</h1>
+<%= render partial: 'weight', collection: @weights %>
+<%# line_chart @weights.group_by_day_of_week(:created_at, last: 8) %>

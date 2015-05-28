@@ -1,14 +1,128 @@
+$font-family-base: 'Titillium Web', sans-serif;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
-.user-info {
-  margin-top: 9px;
-  margin-right: 20px;
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web&subset=latin,latin-ext);
+// Misc CSS
+ul{
+  list-style-type: none;
 }
-.nav {
+
+h1{
+  color: #0191C8;
+}
+
+.user-scroll{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Main Page CSS
+.login-links{
+  font-size: 17px;
+  color: #ffffff;
+}
+
+.nobr{
+  font-size: 17px;
+  color: #ffffff;
+}
+
+.login-links:hover{
+  font-size: 17px;
+  color: #6aeff6;
+  text-decoration: none;
+}
+
+.alert{
+  margin-left: 110px;
+  width: 90%;
+  float: auto;
   margin-top: 5px;
 }
-.fa-top-main{
-  margin-bottom: 5px;
+
+.logo{
+  margin-left: 10px;
+}
+
+.greeting{
+  color: #ffffff;
+  font-size: 17px;
+  display: inline;
+}
+
+.main-page{
+  margin-left: 110px;
+}
+
+.image-bar{
+  height: 60px;
+}
+
+.ul-welcome{
+  margin-left: 50px;
+}
+
+.user-info {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.nav {
+  border: 0px;
+}
+
+.nav-tabs {
+  margin-top: 153px;
+  margin-left: 5px;
+}
+
+.top-bar{
+  background: #0191C8;
+  border-radius: 0px;
+}
+
+.lower-bar{
+  margin-top: -20px;
+  background-image: url("Kettlebells.jpg");
+  height: 150px;
+  max-width:100%;
+}
+
+.nav-links{
+  background: #0191C8;
+  font-color: #000000;
+  border-radius: 7px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #0191C8;
+  width: 95px;
+}
+
+.nav-text{
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+}
+
+.fa-2x{
+  color: #ffffff;
+}
+
+// New and Edit Pages
+.weight-form{
+  width: 25%;
+}
+
+.edit-btns{
+  float: right;
+  margin-right: 15px;
+}
+
+.workout-name{
+}
+// Index Pages
+.weight-list{
+  font-size: 20px;
 }

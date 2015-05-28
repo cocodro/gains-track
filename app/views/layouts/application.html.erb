@@ -8,28 +8,47 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="nav nav-pills">
-      <ul class="nav nav-tabs">
-        <li><%= link_to "Home", welcome_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "New Workout", new_workout_path %></li>
-        <li><%= link_to "Workout History", workouts_path %></li>
-        <div class="pull-right user-info">
-          <% if current_user %>
-            <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
-            Hello <%= current_user.name || current_user.email %>! &nbsp;
-            <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm fa-top-main' do %>
-              <%= fa_icon "user" %>
-            <% end %>
-            <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm fa-top-main' do %>
-              <%= fa_icon "sign-out" %>
-            <% end %>
-          <% else %>
-            <%= link_to "Sign In", new_user_session_path %> or
-            <%= link_to "Sign Up", new_user_registration_path %>
+  <div class="navbar top-bar">
+    <%= link_to welcome_path, class: 'logo' do %>
+      <%= image_tag("GainsTrackLogo2.jpg", height:"60", width: "185", alt: "GainsTrackLogo") %>
+    <% end %>
+      <div class="pull-right user-info">
+        <% if current_user %>
+          <%= image_tag(current_user.avatar.small.url) if current_user.avatar? %>
+          <p class="greeting"> Welcome <%= current_user.name || current_user.email %>! </p> &nbsp;
+          <%= link_to edit_user_registration_path do %>
+            <%= fa_icon "user", class:"fa-2x" %>
           <% end %>
-        </div>
+          &nbsp;
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= fa_icon "sign-out", class:"fa-2x" %>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: "login-links" do %>
+            Sign In &nbsp;<%= fa_icon "sign-in", class:"fa-lg" %>
+          <% end %>
+          <span class="nobr">&nbsp;&nbsp;or&nbsp;&nbsp;</span>
+          <%= link_to new_user_registration_path, class: "login-links" do %>
+            Sign Up &nbsp;<%= fa_icon "user-plus", class:"fa-lg" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="nav nav-pills lower-bar">
+      <ul class="nav nav-tabs nav-stacked">
+        <li class="nav-links"><%= link_to "Home", welcome_path, class: "nav-text" %></li>
+        <li class="nav-links"><%= link_to "About", about_path, class: "nav-text" %></li>
+        <% if current_user %>
+          <li class="nav-links"><%= link_to "Record Weight", new_user_weight_path(current_user.id), class: "nav-text" %></li>
+          <li class="nav-links"><%= link_to "Weight History", user_weights_path(current_user.id), class: "nav-text" %></li>
+          <li class="nav-links"><%= link_to "New Workout", new_user_workout_path(current_user.id), class: "nav-text" %></li>
+          <li class="nav-links"><%= link_to "Workout History", user_workouts_path(current_user.id), class: "nav-text" %></li>
+        <% end %>
       </ul>
+    </br>
+    </br>
+    </br>
+    </br>
     </div>
     <div class="container">
       <% if flash[:notice] %>
@@ -49,7 +68,7 @@
         </div>
       <% end %>
     </div>
-    <div class="container">
+    <div class="container main-page">
 
       <%= yield %>
 

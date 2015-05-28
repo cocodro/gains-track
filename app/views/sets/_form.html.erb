@@ -1,5 +1,4 @@
 <%= form_for [@exercise, @set], as: :set do |f| %>
-<%# form_for [@exercise, @set], url_for({ controller: 'setscontroller', action: :create }) do |f| %>
   <div class="form-group">
     <%= f.label :order %>
     <%= f.number_field :order, autofocus: true, class: "form-control", placeholder: "Set # ?" %>

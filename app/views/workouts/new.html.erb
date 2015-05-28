@@ -2,7 +2,9 @@
 
 <div class="row">
   <div class="col-md-8">
-    <h3><%= Time.now %></h3>
-    <%= render partial: 'form', locals: { workout: @workout } %>
+    <h3>
+      <%= Time.now.strftime("%B %d, %Y at %l:%M %p") %>
+      </h3>
+    <%= render partial: 'form', locals: { user: @user, workout: @workout } %>
   </div>
 </div>

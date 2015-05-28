@@ -3,8 +3,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:update]
+  
+  resources :users do
+    resources :weights
+  end
 
-  resources :workouts do
+  resources :users do
+    resources :workouts
+  end
+
+  resources :workouts, only: [] do
     resources :exercises
   end
 

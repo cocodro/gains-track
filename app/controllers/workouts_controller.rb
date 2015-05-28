@@ -1,27 +1,34 @@
 class WorkoutsController < ApplicationController
 
   def index
-    @workouts = Workout.all
-  end
-
-  def show
-    @workout = Workout.find(params[:id])
-    @exercises = @workout.exercises
+    @user = User.find(params[:user_id])
+    @workouts = @user.workouts
   end
 
   def new
+    @user = User.find(params[:user_id])
     @workout = Workout.new
   end
 
   def create
+    @user = User.find(params[:user_id])
     @workout = Workout.new(workout_params)
+    @workout.user = @user
 
     if @workout.save
-      redirect_to @workout
+      flash[:notice] = "Ready?! Go earn those gains!"
+      redirect_to user_workout_path(@user, @workout)
     else
       flash[:error] = "Uh oh! Your workout wasn't saved"
       render :new
     end
+  end
+  
+  def show
+    @user = User.find(params[:user_id])
+    @workout = Workout.find(params[:id])
+    @workouts = @user.workouts
+    @exercises = @workout.exercises
   end
 
   def edit
@@ -34,7 +41,7 @@ class WorkoutsController < ApplicationController
 
     if @workout.update_attributes(workout_params)
       flash[:notice] = "Workout updated!"
-      redirect_to @workout
+      redirect_to user_workout_path(@user, @workout)
     else
       flash[:error] = "Uh oh, your changes didn't save!"
       redirect_to :back

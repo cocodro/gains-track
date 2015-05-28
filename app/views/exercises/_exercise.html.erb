@@ -1,1 +1,4 @@
-<h4><%= exercise.name %></h4>
+<h3><%= link_to exercise.name, edit_workout_exercise_path(@workout, exercise) %></h3>
+<div>
+  <%= render partial: "sets/set", collection: exercise.sets %>
+</div>

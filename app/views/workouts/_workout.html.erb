@@ -1,0 +1,4 @@
+<h4><%= link_to workout.date, user_workout_path(@user, workout) %></h4>
+  <% unless workout.location == nil %>
+    <h6>You workout out at <%= workout.location %><h6>
+  <% end %>
