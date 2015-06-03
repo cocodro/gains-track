@@ -51,7 +51,7 @@ workouts = Workout.all
 # Create Exercises
 100.times do
   Exercise.create!(
-    workout:      workout.sample,
+    workout:      workouts.sample,
     name:         Faker::Lorem.word,
     description:  Faker::Lorem.sentence
   )
@@ -60,26 +60,27 @@ exercises = Exercise.all
 
 # Create sets
 300.times do
-  Ex_Set.create!(
-    exercise:    exercise.sample,
+  ExSet.create!(
+    exercise:    exercises.sample,
     order:       "1",
     reps:        "15",
     weight:      "100"
     )
 end
-sets = Set.all
+sets = ExSet.all
 
 #Create weights
 100.times do
   Weight.create!(
-  user:         user.sample,
-  value:        Faker::Number.number
+  user:         users.sample,
+  value:        Faker::Number.number(3),
+  bodyfat:      Faker::Number.number(2)
   )
 end
 weights = Weight.all
 
 puts "#{Workout.count} workouts created!"
 puts "#{Exercise.count} exercises created!"
-puts "#{Set.count} sets created!"
+puts "#{ExSet.count} sets created!"
 puts "#{Weight.count} weights created!"
 puts "Seeds Completed!"

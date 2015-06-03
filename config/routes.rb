@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'topic/index'
+
+  get 'topic/new'
+
+  get 'topic/show'
+
   devise_for :users
 
   resources :users, only: [:update]

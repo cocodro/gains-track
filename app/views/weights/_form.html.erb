@@ -4,6 +4,10 @@
     <%= f.number_field :value, autofocus: true, class: "form-control weight-form", placeholder: "Enter your weight in pounds" %>
   </div>
   <div class="form-group">
-    <%= f.submit "Log Weight", class: 'btn btn-md btn-success' %>
+    <%= f.label :bodyfat, "Body Fat Percentage" %>
+    <%= f.number_field :bodyfat, class: "form-control weight-form", placeholder: "Enter body fat %; i.e. 18.5" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-md btn-success' %>
   </div>
 <% end %>

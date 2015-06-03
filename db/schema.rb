@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521025234) do
+ActiveRecord::Schema.define(version: 20150528214911) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "ex_sets", force: true do |t|
     t.integer  "order"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150521025234) do
     t.datetime "updated_at"
   end
 
-  add_index "ex_sets", ["exercise_id"], name: "index_ex_sets_on_exercise_id"
+  add_index "ex_sets", ["exercise_id"], name: "index_ex_sets_on_exercise_id", using: :btree
 
   create_table "exercises", force: true do |t|
     t.string   "name"
@@ -33,18 +36,18 @@ ActiveRecord::Schema.define(version: 20150521025234) do
     t.datetime "updated_at"
   end
 
-  add_index "exercises", ["workout_id"], name: "index_exercises_on_workout_id"
+  add_index "exercises", ["workout_id"], name: "index_exercises_on_workout_id", using: :btree
 
-  create_table "sets", force: true do |t|
-    t.integer  "order"
-    t.integer  "reps"
-    t.integer  "weight"
-    t.integer  "exercise_id"
+  create_table "topics", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "public",      default: "public"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sets", ["exercise_id"], name: "index_sets_on_exercise_id"
+  add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -67,17 +70,18 @@ ActiveRecord::Schema.define(version: 20150521025234) do
     t.string   "avatar"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "weights", force: true do |t|
     t.integer  "value"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "bodyfat"
   end
 
-  add_index "weights", ["user_id"], name: "index_weights_on_user_id"
+  add_index "weights", ["user_id"], name: "index_weights_on_user_id", using: :btree
 
   create_table "workouts", force: true do |t|
     t.string   "location"
@@ -87,6 +91,6 @@ ActiveRecord::Schema.define(version: 20150521025234) do
     t.string   "description", default: ""
   end
 
-  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id", using: :btree
 
 end

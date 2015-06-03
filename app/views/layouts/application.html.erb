@@ -39,8 +39,8 @@
         <li class="nav-links"><%= link_to "Home", welcome_path, class: "nav-text" %></li>
         <li class="nav-links"><%= link_to "About", about_path, class: "nav-text" %></li>
         <% if current_user %>
-          <li class="nav-links"><%= link_to "Record Weight", new_user_weight_path(current_user.id), class: "nav-text" %></li>
-          <li class="nav-links"><%= link_to "Weight History", user_weights_path(current_user.id), class: "nav-text" %></li>
+          <li class="nav-links"><%= link_to "Track Weight/BF", new_user_weight_path(current_user.id), class: "nav-text" %></li>
+          <li class="nav-links"><%= link_to "Weight History/BF", user_weights_path(current_user.id), class: "nav-text" %></li>
           <li class="nav-links"><%= link_to "New Workout", new_user_workout_path(current_user.id), class: "nav-text" %></li>
           <li class="nav-links"><%= link_to "Workout History", user_workouts_path(current_user.id), class: "nav-text" %></li>
         <% end %>

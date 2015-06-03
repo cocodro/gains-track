@@ -4,14 +4,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
+gem 'pg'
+gem 'rails_12factor'
 
-group :development do
-  gem 'sqlite3'
-end
+gem 'lunchy'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -45,12 +41,14 @@ gem 'figaro', '1.0'
 gem 'font-awesome-rails'
 
 gem 'carrierwave'
+gem 'carrierwave-aws'
 gem 'mini_magick'
-gem 'fog'
+#gem 'fog'
 
 ##Charts
 gem 'chartkick', '~> 1.3.2'
 gem 'groupdate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
