@@ -70,11 +70,14 @@ end
 sets = ExSet.all
 
 #Create weights
-100.times do
+weight = 310
+bodyfat = 50.0
+(0..70).to_a.reverse.each do |n|
   Weight.create!(
-  user:         users.sample,
-  value:        Faker::Number.number(3),
-  bodyfat:      Faker::Number.number(2)
+  user:         me,
+  value:        (weight -= rand(2)),
+  bodyfat:      (bodyfat -= rand(0.1)),
+  created_at:   (DateTime.now - n.days)
   )
 end
 weights = Weight.all

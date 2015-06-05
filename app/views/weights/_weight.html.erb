@@ -1,7 +1,7 @@
-<h4 class="weight-list"><strong><%= weight.value %> lbs
-  <% if weight.bodyfat %>
-    and <%= weight.bodyfat %> % BF on:</strong><h4>
-  <% else %>
-    on:</strong><h4>
-  <% end %>
-<h6><%= weight.created_at.strftime("%B %d, %Y at %l:%M %p") %></h6>
+<h4 class="weight-date"><%= weight.created_at.strftime("%B %d, %Y at %l:%M %p") %> </h4>
+  <h5 class="weight-list"><strong><%= weight.value %> lbs
+    <% if weight.bodyfat %>
+      and <%= weight.bodyfat %> % BF </strong></h5>
+    <% else %>
+      </strong></h5>
+    <% end %>

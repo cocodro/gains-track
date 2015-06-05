@@ -1,3 +1,23 @@
 <h1>My Weight History</h1>
-<%= render partial: 'weight', collection: @weights %>
-<%# line_chart @weights.group_by_day_of_week(:created_at, last: 8) %>
+<div>
+  <div class="col-md-3">
+    <%= render partial: 'weight', collection: @weights %>
+  </div>
+  <div class="col-md-9">
+    <%= line_chart [
+      {name: "Weight", data: @weights.group_by_day(:created_at, format: "%B %d, %Y", last: 8).maximum(:value)},
+      {name: "Body Fat %", data: @weights.group_by_day(:created_at, format: "%B %d, %Y", last: 8).maximum(:bodyfat)}
+    ], :library => {title: "Last Week"} %>
+    <% if @weights.count > 60  %>
+      <%= line_chart [
+        {name: "Weight", data: @weights.group_by_week(:created_at, format: "%B %d, %Y").maximum(:value)},
+        {name: "Body Fat %", data: @weights.group_by_week(:created_at, format: "%B %d, %Y").maximum(:bodyfat)}
+      ], :library => {title: "All Time"} %>
+    <% elsif @weights.count > 30 %>
+      <%= line_chart [
+        {name: "Weight", data: @weights.group_by_day(:created_at, format: "%B %d, %Y").maximum(:value)},
+        {name: "Body Fat %", data: @weights.group_by_day(:created_at, format: "%B %d, %Y").maximum(:bodyfat)}
+      ], :library => {title: "All Time"} %>
+    <% end %>
+  </div>
+</div>
