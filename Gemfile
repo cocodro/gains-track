@@ -43,6 +43,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'carrierwave-aws'
 gem 'mini_magick'
+gem 'cloudinary'
 #gem 'fog'
 
 ##Charts

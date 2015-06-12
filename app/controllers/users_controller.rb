@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def update
-    if current_user.update_attributes(user_params)
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
       flash[:notice] = "User information updated!"
       redirect_to edit_user_registration_path
     else
@@ -24,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :avatar, :avatar_cache)
+    params.require(:user).permit(:name, :picture, :picture_cache)
   end
 end

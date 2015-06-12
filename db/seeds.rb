@@ -4,7 +4,7 @@ me = User.new(
   name: "Cole C.",
   email: "combswc@gmail.com",
   password: "password",
-  avatar: "arnold.jpg"
+  picture: "arnold.jpg"
 )
 me.skip_confirmation!
 me.save
@@ -13,7 +13,7 @@ user_one = User.new(
   name: "Daisy",
   email: "dribble@gmail.com",
   password: "password",
-  avatar: "crossfit.jpg"
+  picture: "crossfit.jpg"
 )
 user_one.skip_confirmation!
 user_one.save
@@ -22,7 +22,7 @@ user_two = User.new(
   name: "Barbie",
   email: "kibble@gmail.com",
   password: "password",
-  avatar: "rambo.jpg"
+  picture: "rambo.jpg"
 )
 user_two.skip_confirmation!
 user_two.save
@@ -31,7 +31,7 @@ user_three = User.new(
   name: "Kitty",
   email: "claws@gmail.com",
   password: "password",
-  avatar: "User1.jpg"
+  picture: "User1.jpg"
 )
 user_three.skip_confirmation!
 user_three.save
@@ -76,7 +76,7 @@ bodyfat = 50.0
   Weight.create!(
   user:         me,
   value:        (weight -= rand(2)),
-  bodyfat:      (bodyfat -= rand(0.1)),
+  bodyfat:      (bodyfat -= rand(0.1).round(2)),
   created_at:   (DateTime.now - n.days)
   )
 end

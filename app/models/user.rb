@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :workouts, dependent: :destroy
   has_many :weights, dependent: :destroy
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :picture, PictureUploader
 
 end
