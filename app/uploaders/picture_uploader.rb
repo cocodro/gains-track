@@ -1,16 +1,16 @@
 class PictureUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
 
-  include Cloudinary::CarrierWave
+  storage :fog
 
-  version :main do
-    process :resize_to_fill => [300, 350]
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-  # def scale(width, height)
-  #   # do something
-  # end
+
+  process :resize_to_fill => [300, 350]
 
   # Create different versions of your uploaded files:
-  version :icon do
+  version :tiny do
     process :resize_to_fit => [18, 21]
   end
   version :small do
@@ -20,7 +20,10 @@ class PictureUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [180, 210]
   end
 
+  # Add a white list of extensions which are allowed to be uploaded.
+  # For images you might use something like this:
   def extension_white_list
     %w(jpg jpeg gif png)
   end
+
 end
