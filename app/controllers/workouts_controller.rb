@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @workouts = @user.workouts
+    @workouts = @user.workouts.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -23,11 +23,11 @@ class WorkoutsController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @user = User.find(params[:user_id])
     @workout = Workout.find(params[:id])
-    @workouts = @user.workouts
+    @workouts = @user.workouts.paginate(page: params[:page], per_page: 10)
     @exercises = @workout.exercises
   end
 

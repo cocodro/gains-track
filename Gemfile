@@ -50,6 +50,8 @@ gem 'fog'
 gem 'chartkick', '~> 1.3.2'
 gem 'groupdate'
 
+gem 'will_paginate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -2,5 +2,6 @@
 <div>
   <div class="col-md-3">
     <%= render partial: "workout", collection: @workouts %>
+    <%= will_paginate @workouts %>
   </div>
 </div>

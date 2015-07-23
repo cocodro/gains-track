@@ -2,7 +2,7 @@ class WeightsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @weights = @user.weights
+    @weights = @user.weights.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -27,19 +27,19 @@ class WeightsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @weight = Weight.find(params[:id])
-    @weights = @user.weights
+    @weights = @user.weights.paginate(page: params[:page], per_page: 10)
   end
 
   def edit
     @user = User.find(params[:user_id])
     @weight = Weight.find(params[:id])
-    @weights = @user.weights
+    @weights = @user.weights.paginate(page: params[:page], per_page: 10)
   end
 
   def update
     @user = User.find(params[:id])
     @weight = Weight.find(params[:id])
-    @weights = @user.weights
+    @weights = @user.weights.paginate(page: params[:page], per_page: 10)
 
     if @weight.update_attributes(weight_params)
       flash[:notice] = "Weight updated!"

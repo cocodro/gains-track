@@ -2,6 +2,7 @@
 <div>
   <div class="col-md-3">
     <%= render partial: 'weight', collection: @weights %>
+    <%= will_paginate @weights %>
   </div>
   <div class="col-md-9">
     <%= line_chart [
