@@ -15,8 +15,8 @@
     <% end %>
       <div class="pull-right user-info">
         <% if current_user %>
-          <%= image_tag(current_user.picture.small.url) if current_user.picture? %>
-          <p class="greeting"> Welcome <%= current_user.name || current_user.email %>! </p> &nbsp;
+          <%= image_tag(current_user.picture.small.url, alt: "Prof. Pic", class: 'profile-pic') if current_user.picture? %>
+          <p class="greeting"> Welcome <%= current_user.name || current_user.email %>! </p> &nbsp; &nbsp;
           <%= link_to edit_user_registration_path do %>
             <%= fa_icon "user", class:"fa-2x" %>
           <% end %>

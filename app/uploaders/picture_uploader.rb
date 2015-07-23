@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
@@ -7,17 +9,17 @@ class PictureUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fill => [300, 350]
+  process :resize_to_fill => [300, 300]
 
   # Create different versions of your uploaded files:
   version :tiny do
-    process :resize_to_fit => [18, 21]
+    process :resize_to_fit => [25, 25]
   end
   version :small do
-    process :resize_to_fit => [54, 63]
+    process :resize_to_fit => [55, 55]
   end
   version :profile do
-    process :resize_to_fit => [180, 210]
+    process :resize_to_fit => [200, 200]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -44,7 +44,7 @@ gem 'carrierwave'
 gem 'carrierwave-aws'
 gem 'mini_magick'
 gem 'cloudinary'
-#gem 'fog'
+gem 'fog'
 
 ##Charts
 gem 'chartkick', '~> 1.3.2'
