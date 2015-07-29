@@ -21,23 +21,29 @@
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="item active user-scroll">
-        <%= image_tag("arnold.jpeg", alt: "Arnold Schwarzeneggar") %>
+        <%= image_tag("arnoldbeach.jpg", alt: "Arnold Schwarzeneggar") %>
+        <h3 class="pic-name"> Arnold Schwarzeneggar </h3>
       </div>
       <div class="item user-scroll">
-        <%= image_tag("crossfit.jpg", alt: "Lady Crossfit") %>
+        <%= image_tag("womenfrontsquat.jpg", alt: "Woman Front Squatting") %>
+        <h3 class="pic-name"> Shelly McSquats </h3>
       </div>
       <div class="item user-scroll">
-        <%= image_tag("rambo.jpg", alt: "Rambo") %>
+        <%= image_tag("slystallone.jpg", alt: "Rambo") %>
+        <h3 class="pic-name"> Rambo </h3>
       </div>
       <div class="item user-scroll">
-        <%= image_tag("User1.jpg", alt: "Female Bodybuilder") %>
+        <%= image_tag("averagejoe.jpg", alt: "Regular Joe Weightlifter") %>
+        <h3 class="pic-name"> Joe Weightlifter </h3>
       </div>
     </div>
   </div>
 </div>
-</br>
-<h1> Ready to Get Started? </h1>
-<div class="container col-md-11">
-  <h3>It's easy to get started!  If you're new to Gains Track, head over to the <%= link_to "Sign up", new_user_registration_path %> page and
-    set up your account.  If you've been here before and this is the 100<superscript>th</superscript> time you've seen this, just <%= link_to "Sign in", new_user_session_path %> already!</h3>
-</div>
+<% if current_user.present? %>
+<% else %>
+  <h1> Ready to Get Started? </h1>
+  <div class="container col-md-11">
+    <h3>It's easy to get started!  If you're new to Gains Track, head over to the <%= link_to "Sign up", new_user_registration_path %> page and
+      set up your account.  If you've been here before and this is the 100<superscript>th</superscript> time you've seen this, just <%= link_to "Sign in", new_user_session_path %> already!</h3>
+  </div>
+<% end %>

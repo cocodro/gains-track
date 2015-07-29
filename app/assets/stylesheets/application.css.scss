@@ -13,11 +13,14 @@ h1{
   color: #0191C8;
 }
 
-.user-scroll{
-  margin-left: auto;
-  margin-right: auto;
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  margin: auto;
 }
 
+.slide {
+  text-align: center;
+}
 // Main Page CSS
 .profile-pic{
   margin: -10px 3px 3px 0px;
