@@ -24,6 +24,7 @@ h1{
 // Main Page CSS
 .profile-pic{
   margin: -10px 3px 3px 0px;
+  border-radius: 8%;
 }
 .login-links{
   font-size: 17px;
@@ -99,11 +100,14 @@ h1{
 .nav-links{
   background: #0191C8;
   font-color: #000000;
-  border-radius: 7px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #0191C8;
+  border-radius: 7%;
+  margin-bottom: 2px;
   width: 100px;
+}
+
+.nav-links:hover{
+  background: #000000;
+  color: #0191C8;
 }
 
 .nav-text{

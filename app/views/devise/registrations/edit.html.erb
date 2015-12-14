@@ -10,7 +10,7 @@
       <% if current_user.picture? %>
         <div class="form-group">
           <p>Current Profile Picture</p>
-          <%= image_tag( current_user.picture.profile.url ) %>
+          <%= image_tag( current_user.picture.profile.url, class: 'profile-pic') %>
         </div>
       <% end %>
       <div class="form-group">
